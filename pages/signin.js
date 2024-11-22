@@ -5,7 +5,7 @@ export default function SignInPage() {
 
   return (
     <div style={{ textAlign: 'center', marginTop: '50px' }}>
-      <h1>LooperCode</h1>
+      <h1>Loopercode</h1>
       {session ? (
         <div>
           <p>Signed in as {session.user.name}</p>
