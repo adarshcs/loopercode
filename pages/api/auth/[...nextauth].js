@@ -16,6 +16,16 @@ export const authOptions = {
       },
     }),
   ],
+  callbacks: {
+    async session({ session, user }) {
+      // Attach user information to the session
+      if (user) {
+        session.user.id = user.id;
+        session.user.image = user.image;
+      }
+      return session;
+    },
+  },
   adapter: PrismaAdapter(prisma)
 }
 export default NextAuth(authOptions)
