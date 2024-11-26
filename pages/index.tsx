@@ -1,5 +1,6 @@
 import { signIn, signOut, useSession } from 'next-auth/react';
 import Image from 'next/image';
+import MapComponent from './MapComponent'
 
 export default function Home() {
   const { data: session } = useSession();
@@ -51,10 +52,9 @@ export default function Home() {
 
       {/* Main Content */}
       <main style={{ textAlign: 'center', marginTop: '50px' }}>
-      <div style={{ height: '100%', width: '100%' }} id="map">
-
-      <iframe src="https://www.google.com/maps/d/embed?mid=1TJbUXCtzglQp7jCISyqbv5ugEPljaps&ehbc=2E312F&noprof=1&zoom=15" width="100%" height="480"></iframe>
-      
+      <div>
+        {/* Embed the Google Map */}
+        <MapComponent />
       </div>
       </main>
     </div>
