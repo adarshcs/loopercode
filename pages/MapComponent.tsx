@@ -8,6 +8,10 @@ const MapComponent = () => {
       apiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY!, // Make sure to get the correct environment variable
       version: "weekly",
     });
+    if (userLocation) {
+      // Do something with userLocation, such as updating the map or logging it
+      console.log(userLocation);
+    }
 
     let map: google.maps.Map | undefined;
 
@@ -15,7 +19,7 @@ const MapComponent = () => {
     loader.load().then(async () => {
       try {
         // Import the Google Maps Library
-        const { Map, InfoWindow } = await google.maps.importLibrary("maps") as google.maps.MapsLibrary;
+        const { InfoWindow } = await google.maps.importLibrary("maps") as google.maps.MapsLibrary;
         const { AdvancedMarkerElement, PinElement } = await google.maps.importLibrary("marker") as google.maps.MarkerLibrary;
 
         const home_pin = new PinElement({
@@ -52,8 +56,7 @@ const MapComponent = () => {
               const infoWindow = new InfoWindow();
 
               // Add a click listener for each marker, and set up the info window.
-              marker.addListener('click', ({ domEvent, latLng }) => {
-                const { target } = domEvent;
+              marker.addListener('click', ({ }) => {
                 infoWindow.close();
                 infoWindow.setContent(marker.title);
                 infoWindow.open(marker.map, marker);
