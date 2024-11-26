@@ -3,9 +3,10 @@ const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 
 async function main() {
-  const hotels = [
+  const trails = [
     {
       name: "Taj Mahal Palace",
+      trailType: "Red",
       location: { latitude: 18.921984, longitude: 72.833117 },
       ratesSummary: { minPrice: "15000.00" },
     },
@@ -56,19 +57,19 @@ async function main() {
     },
   ];
 
-  for (const hotel of hotels) {
-    await prisma.hotel.create({
+  for (const trail of trails) {
+    await prisma.trail.create({
       data: {
-        name: hotel.name,
+        name: trail.name,
         location: {
           create: {
-            latitude: hotel.location.latitude,
-            longitude: hotel.location.longitude,
+            latitude: trail.location.latitude,
+            longitude: trail.location.longitude,
           },
         },
         ratesSummary: {
           create: {
-            minPrice: hotel.ratesSummary.minPrice,
+            minPrice: trail.ratesSummary.minPrice,
           },
         },
       },
@@ -76,7 +77,7 @@ async function main() {
   }
 
   console.log(
-    "Seed data with 10 hotels in India has been inserted successfully!",
+    "Seed data with 10 trails in India has been inserted successfully!",
   );
 }
 
