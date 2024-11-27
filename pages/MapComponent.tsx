@@ -5,13 +5,7 @@ const MapComponent = () => {
   const [userLocation, setUserLocation] = useState<google.maps.LatLngLiteral | null>(null);
   const [trails, setTrails] = useState([]);
   const [map, setMap] = useState<google.maps.Map | null>(null);
-
-  // Ref to store loaded libraries
-  const mapLibs = useRef<{
-    PinElement?: typeof google.maps.marker.PinElement;
-    AdvancedMarkerElement?: typeof google.maps.marker.AdvancedMarkerElement;
-    InfoWindow?: typeof google.maps.InfoWindow;
-  }>({});
+  console.log('Current location: ', userLocation);
 
   useEffect(() => {
     const loader = new Loader({
