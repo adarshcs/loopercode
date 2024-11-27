@@ -77,24 +77,13 @@ model Authenticator {
   @@id([userId, credentialID])
 }
 
-model Hotel {
-  id             Int          @id @default(autoincrement())
-  name           String
-  location       Location     @relation(fields: [locationId], references: [id])
-  locationId     Int          @unique
-  ratesSummary   RatesSummary @relation(fields: [ratesSummaryId], references: [id])
-  ratesSummaryId Int          @unique
-}
-
-model Location {
-  id        Int     @id @default(autoincrement())
+model Trail {
+  id        Int      @id @default(autoincrement())
+  name      String
   latitude  Float
   longitude Float
-  hotel     Hotel?  @relation
+  type      String
+  url       String
+  rate      Int?
 }
 
-model RatesSummary {
-  id       Int    @id @default(autoincrement())
-  minPrice String
-  hotel    Hotel? @relation
-}

@@ -1,11 +1,11 @@
 -- CreateTable
-CREATE TABLE "Hotel" (
+CREATE TABLE "Trail" (
     "id" SERIAL NOT NULL,
     "name" TEXT NOT NULL,
     "locationId" INTEGER,
     "ratesSummaryId" INTEGER,
 
-    CONSTRAINT "Hotel_pkey" PRIMARY KEY ("id")
+    CONSTRAINT "Trail_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
@@ -26,13 +26,13 @@ CREATE TABLE "RatesSummary" (
 );
 
 -- CreateIndex
-CREATE UNIQUE INDEX "Hotel_locationId_key" ON "Hotel"("locationId");
+CREATE UNIQUE INDEX "Trail_locationId_key" ON "Trail"("locationId");
 
 -- CreateIndex
-CREATE UNIQUE INDEX "Hotel_ratesSummaryId_key" ON "Hotel"("ratesSummaryId");
+CREATE UNIQUE INDEX "Trail_ratesSummaryId_key" ON "Trail"("ratesSummaryId");
 
 -- AddForeignKey
-ALTER TABLE "Hotel" ADD CONSTRAINT "Hotel_locationId_fkey" FOREIGN KEY ("locationId") REFERENCES "Location"("id") ON DELETE SET NULL ON UPDATE CASCADE;
+ALTER TABLE "Trail" ADD CONSTRAINT "Trail_locationId_fkey" FOREIGN KEY ("locationId") REFERENCES "Location"("id") ON DELETE SET NULL ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "Hotel" ADD CONSTRAINT "Hotel_ratesSummaryId_fkey" FOREIGN KEY ("ratesSummaryId") REFERENCES "RatesSummary"("id") ON DELETE SET NULL ON UPDATE CASCADE;
+ALTER TABLE "Trail" ADD CONSTRAINT "Trail_ratesSummaryId_fkey" FOREIGN KEY ("ratesSummaryId") REFERENCES "RatesSummary"("id") ON DELETE SET NULL ON UPDATE CASCADE;
