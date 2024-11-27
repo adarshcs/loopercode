@@ -19,10 +19,12 @@
     "leaflet": "^1.9.4",
     "next": "15.0.3",
     "next-auth": "^4.24.10",
+    "nodemailer": "^6.9.16",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-leaflet": "^4.2.1",
-    "sqlite3": "^5.1.7"
+    "sqlite3": "^5.1.7",
+    "twilio": "^5.3.6"
   },
   "devDependencies": {
     "@types/node": "^20.17.7",

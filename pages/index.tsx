@@ -1,9 +1,14 @@
 import { signIn, signOut, useSession } from 'next-auth/react';
+import { useState } from 'react';
 import Image from 'next/image';
 import MapComponent from './MapComponent'
+import Modal from './Modal'; // Assuming Modal is in the components folder
+import TrailForm from './TrailForm'; // Assuming TrailForm is in the components folder
+
 
 export default function Home() {
   const { data: session } = useSession();
+  const [showModal, setShowModal] = useState(false);
 
   return (
     <div>
@@ -29,6 +34,15 @@ export default function Home() {
                 style={{ borderRadius: '50%' }}
               />
               <span>{session.user?.name}</span>
+              <button
+                  className="btn-report-trail"
+                  onClick={() => {
+                      console.log('Report Trail clicked'); // Debug log
+                      setShowModal(true);
+                  }}
+              >
+                  Report Trail
+              </button>
               <button onClick={() => signOut()} style={{ marginLeft: '10px' }}>
                 Sign Out
               </button>
@@ -57,6 +71,13 @@ export default function Home() {
         <MapComponent />
       </div>
       </main>
+
+      {/* Modal for Report Trail */}
+      {showModal && (
+          <Modal isOpen={showModal} onClose={() => setShowModal(false)}>
+              <TrailForm onClose={() => setShowModal(false)} />
+          </Modal>
+      )}
     </div>
   );
 }

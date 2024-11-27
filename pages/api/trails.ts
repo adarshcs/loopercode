@@ -8,12 +8,10 @@ export default async function handler(req, res) {
         select: {
           id: true,
           name: true,
-          location: {
-            select: {
-              latitude: true,
-              longitude: true,
-            }
-          }
+          latitude: true,
+          longitude: true,
+          type: true,
+          url: true,
         },
       });
       

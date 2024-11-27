@@ -120,7 +120,7 @@ const MapComponent = () => {
           // After trails are fetched, add markers for each trail
           trails.forEach((trail) => {
             console.log('Adding marker for trail:', trail.name);
-            console.log('Location:', trail.location.latitude, trail.location.longitude);
+            console.log('Location:', trail.latitude, trail.longitude);
             const trailPin = new PinElement({
               scale: 1.5,
               background: "#FEDA14",
@@ -131,7 +131,7 @@ const MapComponent = () => {
 
             const trailMarker = new AdvancedMarkerElement({
               map,
-              position: { lat: trail.location.latitude, lng: trail.location.longitude },
+              position: { lat: trail.latitude, lng: trail.longitude },
               title: trail.name,
               content: trailPin.element,
               gmpClickable: true,
