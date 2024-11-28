@@ -1,5 +1,5 @@
 import { Loader } from "@googlemaps/js-api-loader";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 
 const MapComponent = () => {
   const [userLocation, setUserLocation] = useState<google.maps.LatLngLiteral | null>(null);
