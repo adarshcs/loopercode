@@ -33,7 +33,9 @@ export default async function handler(req, res) {
           url: url,
         },
       });
-      res.status(200).json({ success: true, trail: newTrail });
+      console.log('Approved trail: ',newTrail)
+      res.writeHead(302, { Location: '/' }); // 302 is a temporary redirect
+      res.end();
     } catch (error) {
       console.error('Error saving trail to the database:', error);
       res.status(500).json({ success: false, error: 'Failed to save trail to database' });
