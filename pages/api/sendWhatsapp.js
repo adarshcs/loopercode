@@ -14,7 +14,7 @@ export default async function handler(req, res) {
         const to = 'whatsapp:+919449187343'; // Your personal number
 
         // URL for the approval page (this URL would be a page on your website where users approve the trail)
-        const approvalUrl = `https://loopercode.com/approve-trail?trailName=${encodeURIComponent(trailName)}&latitude=${latitude}&longitude=${longitude}&trailType=${trailType}&url=${encodeURIComponent(url)}`;
+        const approvalUrl = `https://loopercode.com/api/approve-trail?trailName=${encodeURIComponent(trailName)}&latitude=${latitude}&longitude=${longitude}&trailType=${trailType}&url=${encodeURIComponent(url)}`;
 
         // Message content (Main content of the message)
         const message = `A new trail has been reported:
