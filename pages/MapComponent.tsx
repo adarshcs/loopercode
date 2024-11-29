@@ -1,5 +1,5 @@
 import { Loader } from "@googlemaps/js-api-loader";
-import React, { useEffect, useState } from "react";
+import React, { SetStateAction, useEffect, useState } from "react";
 
 const MapComponent = () => {
   const [userLocation, setUserLocation] = useState<google.maps.LatLngLiteral | null>(null);
@@ -16,7 +16,7 @@ const MapComponent = () => {
   const fetchTrails = async () => {
     try {
       const response = await fetch('/api/trails');
-      const data = await response.json();
+      const data = await response.json() as SetStateAction<never[]>;
       console.log("Fetched from DB inside fetchTrails:", data); // Ensure data is fetched correctly
       if (Array.isArray(data) && data.length > 0) {
         setTrails(data); // Set trails state if data is valid
