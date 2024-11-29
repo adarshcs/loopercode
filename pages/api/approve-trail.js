@@ -33,7 +33,7 @@ export default async function handler(req, res) {
           url: url,
         },
       });
-      
+      console.log('Approved trail: ',newTrail)
       res.writeHead(302, { Location: '/' }); // 302 is a temporary redirect
       res.end();
     } catch (error) {
