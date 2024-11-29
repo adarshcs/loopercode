@@ -111,8 +111,18 @@ const MapComponent = () => {
 
           const infoWindow = new InfoWindow();
 
+          type trailInfo = {
+            id: number,
+            name: string,
+            latitude: number,
+            longitude: number,
+            type: string,
+            url: string
+          }
+          const trailsData: trailInfo[] = trails
+
           // After trails are fetched, add markers for each trail
-          trails.forEach((trail) => {
+          trailsData.forEach((trail) => {
             console.log('Adding marker for trail:', trail.name);
             console.log('Location:', trail.latitude, trail.longitude);
             const trailPin = new PinElement({
@@ -122,6 +132,7 @@ const MapComponent = () => {
               glyphColor: "#39FF14",
               glyph: '🚲'
             });
+
 
             const trailMarker = new AdvancedMarkerElement({
               map,
