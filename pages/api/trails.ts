@@ -1,6 +1,7 @@
 import { prisma } from '../../lib/prisma'
+import type { NextApiRequest, NextApiResponse } from 'next';
 
-export default async function handler(req, res) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   try {
     
     // Fetch all trails with their locations
