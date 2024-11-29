@@ -15,6 +15,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           url: true,
         },
       });
+
+      console.log('Trails from DB in trails.ts',trails);
       
     res.status(200).json(trails);
   } catch (error) {
