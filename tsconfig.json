@@ -17,6 +17,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "prisma/seed.js", "pages/MapComponent.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "seed.js", "pages/MapComponent.tsx"],
   "exclude": ["node_modules"]
 }
